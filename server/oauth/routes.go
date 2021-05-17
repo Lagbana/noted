@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/Lagbana/noted/server/auth"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/jwtauth"
-	"github.com/jesseokeya/go-rest-api-template/server/auth"
 )
 
 func GetPing(w http.ResponseWriter, r *http.Request) {

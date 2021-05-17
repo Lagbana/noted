@@ -10,12 +10,12 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/jesseokeya/go-rest-api-template/config"
-	"github.com/jesseokeya/go-rest-api-template/cronjob"
-	"github.com/jesseokeya/go-rest-api-template/data"
-	"github.com/jesseokeya/go-rest-api-template/lib/connect"
-	"github.com/jesseokeya/go-rest-api-template/lib/session"
-	"github.com/jesseokeya/go-rest-api-template/server"
+	"github.com/Lagbana/noted/config"
+	"github.com/Lagbana/noted/cronjob"
+	"github.com/Lagbana/noted/data"
+	"github.com/Lagbana/noted/lib/connect"
+	"github.com/Lagbana/noted/lib/session"
+	"github.com/Lagbana/noted/server"
 	"github.com/robfig/cron/v3"
 	"github.com/rs/zerolog/log"
 	"github.com/zenazn/goji/graceful"
@@ -23,7 +23,7 @@ import (
 
 var (
 	flags    = flag.NewFlagSet("template", flag.ExitOnError)
-	confFile = flags.String("config", "", "path to config file")
+	confFile = flags.String("config", "config/api.conf", "path to config file")
 )
 
 func main() {
@@ -95,6 +95,7 @@ func main() {
 	}
 
 	log.Info().Msgf("[%s] API starting on %s", conf.Environment, bind)
+	log.Info().Msgf("🚀 Database %s is connected", db.Name())
 	if err := graceful.ListenAndServe(bind, h.Routes()); err != nil {
 		log.Fatal().Err(err).Msg("cannot bind to host")
 	}

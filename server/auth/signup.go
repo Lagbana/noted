@@ -4,11 +4,11 @@ import (
 	"errors"
 	"net/http"
 
+	"github.com/Lagbana/noted/data"
+	"github.com/Lagbana/noted/data/presenter"
+	"github.com/Lagbana/noted/server/api"
 	"github.com/go-chi/render"
 	"github.com/goware/emailx"
-	"github.com/jesseokeya/go-rest-api-template/data"
-	"github.com/jesseokeya/go-rest-api-template/data/presenter"
-	"github.com/jesseokeya/go-rest-api-template/server/api"
 	"github.com/upper/db/v4"
 )
 

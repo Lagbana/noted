@@ -4,15 +4,15 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/Lagbana/noted/data"
+	"github.com/Lagbana/noted/lib/session"
+	"github.com/Lagbana/noted/server/api"
+	"github.com/Lagbana/noted/server/oauth"
+	"github.com/Lagbana/noted/server/user"
+	"github.com/Lagbana/noted/server/todolist"
+	"github.com/Lagbana/noted/server/todoitem"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
-	"github.com/go-chi/jwtauth"
-	"github.com/jesseokeya/go-rest-api-template/data"
-	"github.com/jesseokeya/go-rest-api-template/lib/session"
-	"github.com/jesseokeya/go-rest-api-template/server/api"
-	"github.com/jesseokeya/go-rest-api-template/server/auth"
-	"github.com/jesseokeya/go-rest-api-template/server/oauth"
-	"github.com/jesseokeya/go-rest-api-template/server/user"
 	"github.com/rs/zerolog"
 )
 
@@ -80,18 +80,26 @@ func (s *Server) Routes() chi.Router {
 	r.Get("/", healthCheck)
 
 	r.Group(func(r chi.Router) {
-		r.Mount("/auth", s.o.Routes())
+		r.Mount("/lists", todolist.Routes())
+	})
+
+	r.Group(func(r chi.Router) {
+		r.Mount("/list", todoitem.Routes())
+	})
+
+	r.Group(func(r chi.Router) {
+		// r.Mount("/auth", s.o.Routes())
 	})
 
 	r.Group(func(r chi.Router) {
 		// Seek, verify and validate JWT tokens
-		r.Use(jwtauth.Verifier(s.o.Authority()))
+		// r.Use(jwtauth.Verifier(s.o.Authority()))
 
 		// Handle valid / invalid tokens.
-		r.Use(auth.Authenticator)
+		// r.Use(auth.Authenticator)
 
 		// User Session context
-		r.Use(auth.SessionCtx)
+		// r.Use(auth.SessionCtx)
 
 		r.Mount("/users", user.Routes())
 	})

@@ -2,7 +2,6 @@
 
 TEST_FLAGS ?=
 CONFIG := $$PWD/config/api.conf
-GOOGLE_APPLICATION_CREDENTIALS := $$PWD/config/google-credentials.json
 UPPER_DB_LOG=DEBUG
 
 all:
@@ -77,9 +76,10 @@ conf:
 	[ -f config/api.conf ] || cp config/api.develop.conf config/api.conf
 
 run: conf
-	@(export CONFIG=${CONFIG}; GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS} air)
+	@(export CONFIG=${CONFIG}; air)
 
 build:
 	@mkdir -p ./bin
-	GO111MODULE=on GOGC=off go build -gcflags=-trimpath=${GOPATH} -asmflags=-trimpath=${GOPATH} -i -o ./bin/api ./cmd/api/main.go
+	GO111MODULE=on GOGC=off go build -gcflags=-trimpath=${GOPATH} -asmflags=-trimpath=${GOPATH} -o ./bin/api ./cmd/api/main.go
+	GO111MODULE=on GOGC=off go build -gcflags=-trimpath=${GOPATH} -asmflags=-trimpath=${GOPATH} -o ./bin/migrate ./cmd/migrate/main.go
 	

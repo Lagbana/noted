@@ -12,7 +12,9 @@ import (
 type Database struct {
 	db.Session
 
-	User *UsersStore
+	User 	 *UsersStore
+	TodoList *TodoListStore
+	TodoItem *TodoItemStore
 }
 
 // DBConf database configuration
@@ -59,6 +61,8 @@ func NewDB(conf DBConf) (*Database, error) {
 	}
 
 	db.User = Users(db.Session)
+	db.TodoList = TodoLists(db.Session)
+	db.TodoItem = TodoItems(db.Session)
 
 	// global instance for access across modules
 	DB = db

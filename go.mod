@@ -1,8 +1,8 @@
-module github.com/jesseokeya/go-rest-api-template
+module github.com/Lagbana/noted
 
 go 1.16
 
-// replace github.com/jesseokeya/go-rest-api-template => /Users/jesseokeya/go/src/github.com/jesseokeya/go-rest-api-template
+replace github.com/Lagbana/noted => /Users/larrya/Desktop/ProjectRepos/noted
 
 require (
 	github.com/burntsushi/toml v0.3.1
@@ -23,4 +23,5 @@ require (
 	github.com/upper/db/v4 v4.1.0
 	github.com/zenazn/goji v1.0.1
 	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
+	golang.org/x/sys v0.0.0-20210511113859-b0526f3d8744 // indirect
 )

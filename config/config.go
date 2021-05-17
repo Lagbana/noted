@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/Lagbana/noted/data"
+	"github.com/Lagbana/noted/lib/connect"
+	"github.com/Lagbana/noted/lib/session"
 	"github.com/burntsushi/toml"
-	"github.com/jesseokeya/go-rest-api-template/data"
-	"github.com/jesseokeya/go-rest-api-template/lib/connect"
-	"github.com/jesseokeya/go-rest-api-template/lib/session"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/pkgerrors"
 )

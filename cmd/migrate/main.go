@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/jesseokeya/go-rest-api-template/db"
+	"github.com/Lagbana/noted/db"
 	"github.com/pressly/goose"
 )
 

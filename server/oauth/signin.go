@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/jesseokeya/go-rest-api-template/data"
-	"github.com/jesseokeya/go-rest-api-template/data/presenter"
-	"github.com/jesseokeya/go-rest-api-template/server/api"
-	"github.com/jesseokeya/go-rest-api-template/server/auth"
+	"github.com/Lagbana/noted/data"
+	"github.com/Lagbana/noted/data/presenter"
+	"github.com/Lagbana/noted/server/api"
+	"github.com/Lagbana/noted/server/auth"
 	"github.com/upper/db/v4"
 )
 

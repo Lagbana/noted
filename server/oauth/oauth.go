@@ -7,15 +7,15 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/Lagbana/noted/data"
+	"github.com/Lagbana/noted/data/presenter"
+	"github.com/Lagbana/noted/lib/session"
+	"github.com/Lagbana/noted/server/api"
 	"github.com/go-chi/jwtauth"
 	"github.com/go-chi/render"
 	"github.com/go-oauth2/oauth2/v4/errors"
 	"github.com/go-oauth2/oauth2/v4/manage"
 	"github.com/go-oauth2/oauth2/v4/server"
-	"github.com/jesseokeya/go-rest-api-template/data"
-	"github.com/jesseokeya/go-rest-api-template/data/presenter"
-	"github.com/jesseokeya/go-rest-api-template/lib/session"
-	"github.com/jesseokeya/go-rest-api-template/server/api"
 )
 
 type OAuth struct {

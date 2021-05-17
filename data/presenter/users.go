@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/jesseokeya/go-rest-api-template/data"
-	"github.com/jesseokeya/go-rest-api-template/lib/session"
+	"github.com/Lagbana/noted/data"
+	"github.com/Lagbana/noted/lib/session"
 )
 
 // User holds a pointer to the postgres user data structure

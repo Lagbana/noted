@@ -91,7 +91,7 @@ func ErrPermission(err error) *ApiError {
 	}
 }
 
-// ErrInvalidRequest is error message for Unauthorized
+// ErrInvalidRequest is error message for bad request
 func ErrInvalidRequest(err error, data ...interface{}) *ApiError {
 	v := &ApiError{
 		Err:        err,
